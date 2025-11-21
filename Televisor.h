@@ -5,25 +5,25 @@ class Televisor{
     private:
         std::string nombre;
         float precio;
-        std:: string marca;
-        std:: string tipo_pantalla;
+        std::string marca;
+        std::string tipo_pantalla;
         float tamano;
         std::string smartTV;
-        std:: string condicion;
+        std::string condicion;
         int cantidad_disponible;
 
     public:
         Televisor(): nombre(""), precio(0.0), marca(""), tipo_pantalla(""), tamano(0.0), smartTV("No"), condicion(""), cantidad_disponible(0){};
-        Televisor(std::string nom, float pre, std:: string mar, std:: string pan, float tam, std:: string tv, std:: string cond, int cant): 
+        Televisor(std::string nom, float pre, std::string mar, std::string pan, float tam, std::string tv, std::string cond, int cant): 
             nombre(nom), precio(pre), marca(mar), tipo_pantalla(pan), tamano(tam), smartTV(tv), condicion(cond), cantidad_disponible(cant){}
 
         std::string getNombre();
         float getPrecio();
-        std:: string getMarca();
-        std:: string getTipo_pantalla();
+        std::string getMarca();
+        std::string getTipo_pantalla();
         float getTamano();
-        std:: string getSmartTV();
-        std:: string getCondicion();
+        std::string getSmartTV();
+        std::string getCondicion();
         int getCantidad_disponible();
 
         void setPrecio(float );
@@ -42,11 +42,11 @@ class Televisor{
             return precio;
         }
 
-        std:: string Televisor::getMarca(){
+        std::string Televisor::getMarca(){
             return marca;
         }
 
-        std:: string Televisor::getTipo_pantalla(){
+        std::string Televisor::getTipo_pantalla(){
             return tipo_pantalla;
         }
 
@@ -58,7 +58,7 @@ class Televisor{
             return smartTV;
         }
 
-        std:: string Televisor::getCondicion(){
+        std::string Televisor::getCondicion(){
             return condicion;
         }
 
