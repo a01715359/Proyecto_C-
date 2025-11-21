@@ -6,23 +6,23 @@ class Smartphone{
     private:
         std::string nombre;
         float precio;
-        std:: string marca;
+        std::string marca;
         int memoria;
         float tamano;
-        std:: string condicion;
+        std::string condicion;
         int cantidad_disponible;
 
     public:
     Smartphone(): nombre(""), precio(0.0), marca(""), memoria(0), tamano(0), condicion(""), cantidad_disponible(0){};
-    Smartphone(std::string nom, float pre, std:: string mar, int mem, float tam, std:: string cond, int cant = 0): 
+    Smartphone(std::string nom, float pre, std::string mar, int mem, float tam, std::string cond, int cant): 
     nombre(nom), precio(pre), marca(mar), memoria(mem), tamano(tam), condicion(cond), cantidad_disponible(cant){}
 
         std::string getNombre();
         float getPrecio();
         int getMemoria();
-        std:: string getMarca();
+        std::string getMarca();
         float getTamano();
-        std:: string getCondicion();
+        std::string getCondicion();
         int getCantidad_disponible();
 
         void setPrecio(float );
@@ -41,7 +41,7 @@ class Smartphone{
             return precio;
         }
 
-        std:: string Smartphone::getMarca(){
+        std::string Smartphone::getMarca(){
             return marca;
         }
 
@@ -49,7 +49,11 @@ class Smartphone{
             return memoria;
         }
 
-        std:: string Smartphone::getCondicion(){
+        float Smartphone::getTamano(){
+            return tamano;
+        }
+
+        std::string Smartphone::getCondicion(){
             return condicion;
         }
 
@@ -78,6 +82,7 @@ class Smartphone{
                       << "\nMarca: " << marca
                       << "\nMemoria: " << memoria << " GB"
                       << "\nCondición: " << condicion
+                      << "\nTamaño: " << tamano << " pulgadas"
                       << "\nCantidad disponible: " << cantidad_disponible
                       << "\nValor total en stock: $" << calcular_valor_stock()
                       << "\n\n";
