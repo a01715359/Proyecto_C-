@@ -5,25 +5,25 @@ class Laptop{
     private:
         std::string nombre;
         float precio;
-        std:: string marca;
-        std:: string procesador;
+        std::string marca;
+        std::string procesador;
         float tamano;
         int ram;
-        std:: string condicion;
+        std::string condicion;
         int cantidad_disponible;
 
     public:
         Laptop(): nombre(""), precio(0.0), marca(""), procesador(""), tamano(0), ram(0), condicion(""), cantidad_disponible(0){};
-        Laptop(std::string nom, float pre, std:: string mar, std:: string pro, float tam, int r, std:: string cond, int cant): 
+        Laptop(std::string nom, float pre, std::string mar, std::string pro, float tam, int r, std::string cond, int cant): 
             nombre(nom), precio(pre),  marca(mar), procesador(pro), tamano(tam), ram(r), condicion(cond), cantidad_disponible(cant){}
 
         std::string getNombre();
         float getPrecio();
-        std:: string getMarca();
-        std:: string getProcesador();
+        std::string getMarca();
+        std::string getProcesador();
         float getTamano();
         int getRam();
-        std:: string getCondicion();
+        std::string getCondicion();
         int getCantidad_disponible();
 
         void setPrecio(float );
@@ -43,11 +43,11 @@ class Laptop{
             return precio;
         }
 
-        std:: string Laptop::getMarca(){
+        std::string Laptop::getMarca(){
             return marca;
         }
 
-        std:: string Laptop::getProcesador(){
+        std::string Laptop::getProcesador(){
             return procesador;
         }
 
@@ -59,7 +59,7 @@ class Laptop{
             return ram;
         }
 
-        std:: string Laptop::getCondicion(){
+        std::string Laptop::getCondicion(){
             return condicion;
         }
 
@@ -94,5 +94,5 @@ class Laptop{
                       << "\nCantidad disponible: " << cantidad_disponible
                       << "\nValor total en stock: $" << calcular_valor_stock()
                       << "\n\n";
-}
+        }
 
