@@ -22,6 +22,7 @@ int main(){
         std::cout << "4: Modificar algún dato\n";
         std::cout << "Cualquier otro botón: Salir\n";
         std::cin >> opcion;
+        std::cin.ignore(1000, '\n'); 
 
         if (opcion == "1") {
             std::string nombre, marca, condicion;
@@ -31,10 +32,13 @@ int main(){
             std::cout << "=== Agregar Celular ===\n\n";
             
             std::cout << "Nombre: ";
-            std::cin >> nombre;
+            std::getline(std::cin, nombre);
 
             std::cout << "Marca: ";
-            std::cin >> marca;
+            std::getline(std::cin, marca);
+
+            std::cout << "Condición (Nuevo/Usado/Reacondicionado): ";
+            std::getline(std::cin, condicion);
 
             std::cout << "Memoria (en GB): ";
             std::cin >> memoria;  
@@ -42,14 +46,12 @@ int main(){
             std::cout << "Tamaño (en pulgadas): ";
             std::cin >> tamano;
 
-            std::cout << "Condición (Nuevo/Usado/Reacondicionado): ";
-            std::cin >> condicion;
-
-            std::cout << "Precio:\n";
+            std::cout << "Precio: ";
             std::cin >> precio;
 
             std::cout << "Cantidad disponible: ";
             std::cin >> cantidad_disponible;
+            std::cin.ignore(1000, '\n'); 
 
             celular = Smartphone(nombre, precio, marca, memoria, tamano, condicion, cantidad_disponible);
             tiene_celular = true;
@@ -61,16 +63,16 @@ int main(){
             int ram, cantidad_disponible;
             std::cout << "=== Agregar Laptop ===\n\n";
             std::cout << "Nombre: ";
-            std::cin >> nombre;
+            std::getline(std::cin, nombre);
 
             std::cout << "Marca: ";
-            std::cin >> marca;
+            std::getline(std::cin, marca);
 
             std::cout << "Procesador: ";
-            std::cin >> procesador;
+            std::getline(std::cin, procesador);
 
             std::cout << "Condición (Nuevo/Usado/Reacondicionado): ";
-            std::cin >> condicion;
+            std::getline(std::cin, condicion);
 
             std::cout << "RAM (en GB): ";
             std::cin >> ram;
@@ -78,11 +80,12 @@ int main(){
             std::cout << "Tamaño (en pulgadas): ";
             std::cin >> tamano;
 
-            std::cout << "Precio:\n";
+            std::cout << "Precio: ";
             std::cin >> precio;
 
             std::cout << "Cantidad disponible: ";
             std::cin >> cantidad_disponible;
+            std::cin.ignore(1000, '\n'); 
 
             computadora = Laptop(nombre, precio, marca, procesador, tamano, ram, condicion, cantidad_disponible);
             tiene_computadora = true;
@@ -94,24 +97,29 @@ int main(){
             int cantidad_disponible;
             std::cout << "=== Agregar Televisor ===\n\n";
             std::cout << "Nombre: ";
-            std::cin >> nombre;
+            std::getline(std::cin, nombre);
 
             std::cout << "Marca: ";
-            std::cin >> marca;
+            std::getline(std::cin, marca);
 
             std::cout << "Tipo de pantalla: ";
-            std::cin >> tipo_pantalla;
+            std::getline(std::cin, tipo_pantalla);
 
             std::cout << "¿Es Smart TV? (Sí/No): ";
-            std::cin >> smartTV;
+            std::getline(std::cin, smartTV);
+
+            while (smartTV != "si" && smartTV != "sí" && smartTV != "no") {
+                std::cout << "Valor inválido. Escriba si o no: ";
+                std::getline(std::cin, smartTV);
+            }
 
             std::cout << "Condición (Nuevo/Usado/Reacondicionado): ";
-            std::cin >> condicion;
+            std::getline(std::cin, condicion);
 
             std::cout << "Tamaño (en pulgadas): ";
             std::cin >> tamano;
 
-            std::cout << "Precio:\n";
+            std::cout << "Precio: ";
             std::cin >> precio;
 
             std::cout << "Cantidad disponible: ";
@@ -152,9 +160,13 @@ int main(){
                     std::cin >> cond;
                     std::cout << "Ingrese el nuevo precio: ";
                     std::cin >> pre;
+                    int cant;
+                    std::cout << "Ingrese la nueva cantidad disponible: ";
+                    std::cin >> cant;
                     computadora.setCondicion(cond);
                     computadora.setPrecio(pre);
                     computadora.mostrar_info();
+                    computadora.setCantidad_disponible(cant);
                 } else {
                     std::cout << "No hay una laptop agregada aun.\n";
                 }
@@ -163,13 +175,19 @@ int main(){
                 if (tiene_tv == true) {
                     std::string cond;
                     float pre;
+                    int cant;
+
                     std::cout << "Ingrese la nueva condición: ";
                     std::cin >> cond;
                     std::cout << "Ingrese el nuevo precio: ";
                     std::cin >> pre;
+                    std::cout << "Ingrese la nueva cantidad disponible: ";
+                    std::cin >> cant;
                     tv.setCondicion(cond);
                     tv.setPrecio(pre);
                     tv.mostrar_info();
+                    tv.setCantidad_disponible(cant);
+
                 } else {
                     std::cout << "No hay un televisor agregado aun.\n";
                 }
