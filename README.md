@@ -1,5 +1,9 @@
 # TecMarket
 ### Contexto
-Una empresa acaba de lanzar una página web para vender productos tecnológicos, por lo que para ordenar el inventario y alistar los productos que se van a publicar en la plataforma, los empleados de la empresa deben tomar nota de los productos que tienen disponible para la venta.
+Una empresa lanzó una página web para vender productos tecnológicos. Para tener todo en orden y listo para mostrar en la plataforma, los empleados deben registrar los productos disponibles.
 
-En este programa, el usuario es uno de los empleados de la empresa, y tiene que ingresar los datos de los productos que se manejarán en la plataforma. El empleado puede registrar la información de un celular, una laptop o un televisor, y además tiene la posibilidad de modificar posteriormente ciertos datos, como el precio, la condición del producto y la cantidad disponible, en caso de que estos cambien antes de ser publicados en la tienda en línea.
+En este programa, el usuario es un empleado de la empresa y debe ingresar la información de los productos que se van a vender. Existen varias clases de productos: celulares, laptops y televisores. Si algún dato cambia, como el precio, el estado del producto o la cantidad disponible, esta información se puede actualizar antes de que el artículo sea publicado en la tienda en línea.
+
+Además, el sistema cuenta con un inventario que permite organizar todos los productos en un solo lugar. Esto facilita buscarlos, modificar su información y prepararlos para la venta. Es importante tener en cuenta que los productos pueden existir dentro o fuera del inventario. Agregar un producto al inventario simplemente lo registra, y quitarlo no significa que el producto desaparezca del almacén. Incluso si el inventario fuera eliminado, los productos seguirían existiendo, ya que no dependen directamente de él.
+
+Por otro lado, la relación entre los celulares y las tarjetas SIM funciona de manera distinta. En este sistema, una tarjeta SIM no puede existir si no está asociada a un celular. Cada SIM va ligada a un teléfono y se gestiona junto con él. Por esa razón, si se elimina un celular del sistema, también se eliminan las tarjetas SIM que tenga asociadas, ya que no tienen utilidad por sí solas.
