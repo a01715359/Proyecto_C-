@@ -16,25 +16,26 @@ class Smartphone: public Electronico{
     Smartphone(std::string nom, float pre, std::string mar, int mem, float tam, std::string cond, int cant, std::string num_sim, std::string oper_sim, std::string tip_sim,  bool act_sim)
     : Electronico(nom, pre, mar, tam, cond, cant), memoria(mem), sim(num_sim, oper_sim, tip_sim, act_sim) {}
 
-    int getMemoria() const;
-    const Sim &getSim() const;
-    void setSim(const Sim &s);
-    void mostrar_info() const;
+    int getMemoria();
+    Sim getSim();
+    void setSim(Sim &s);
+
+    void mostrar_info();
 };
 
-        int Smartphone::getMemoria() const {
+        int Smartphone::getMemoria() {
             return memoria;
         }
 
-        const Sim &Smartphone::getSim() const {
+        Sim Smartphone::getSim() {
             return sim;
         }
 
-        void Smartphone::setSim(const Sim &s) {
+        void Smartphone::setSim(Sim &s) {
             sim = s;
         }
 
-        void Smartphone::mostrar_info() const {
+        void Smartphone::mostrar_info() {
             std::cout << "Nombre: " << nombre
                       << "\nPrecio: $" << precio
                       << "\nMarca: " << marca
