@@ -19,13 +19,13 @@ class Inventario{
     public:
     Inventario(): cantidad_laptops(0), cantidad_smartphones(0), cantidad_televisores(0){}
 
-    int getCantidad_laptops() const{
+    int getCantidad_laptops(){
         return cantidad_laptops;
     }
-    int getCantidad_smartphones() const{
+    int getCantidad_smartphones(){
         return cantidad_smartphones;
     }
-    int getCantidad_televisores() const{
+    int getCantidad_televisores(){
         return cantidad_televisores;
     }
 
@@ -35,7 +35,7 @@ class Inventario{
     void modificarLaptop(int index, float nuevo_precio, std::string nueva_condicion, int nueva_cantidad);
     void modificarSmartphone(int index, float nuevo_precio, std::string nueva_condicion, int nueva_cantidad);
     void modificarTelevisor(int index, float nuevo_precio, std::string nueva_condicion, int nueva_cantidad);
-    void mostrarInventario() const;
+    void mostrarInventario();
 };
 
     void Inventario:: agregarLaptop(const Laptop& laptop){
@@ -97,7 +97,7 @@ class Inventario{
         }
     }
 
-    void Inventario::mostrarInventario() const{
+    void Inventario::mostrarInventario(){
         std::cout << "=== Laptops ===\n";
         for(int i = 0; i < cantidad_laptops; i++){
             std::cout << "[" << i << "]\n";
