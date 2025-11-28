@@ -1,89 +1,51 @@
+#ifndef SMARTPHONE_H
+#define SMARTPHONE_H
+
 #include <iostream>
 #include <string>
+#include "Electronico.h"
+#include "Sim.h"
 
-class Smartphone{
-
+class Smartphone: public Electronico{
     private:
-        std::string nombre;
-        float precio;
-        std::string marca;
         int memoria;
-        float tamano;
-        std::string condicion;
-        int cantidad_disponible;
+        Sim sim;
 
     public:
-    Smartphone(): nombre(""), precio(0.0), marca(""), memoria(0), tamano(0), condicion(""), cantidad_disponible(0){};
-    Smartphone(std::string nom, float pre, std::string mar, int mem, float tam, std::string cond, int cant): 
-    nombre(nom), precio(pre), marca(mar), memoria(mem), tamano(tam), condicion(cond), cantidad_disponible(cant){}
+    Smartphone(): Electronico(), memoria(0), sim() {};
+    Smartphone(std::string nom, float pre, std::string mar, int mem, float tam, std::string cond, int cant, std::string num_sim, std::string oper_sim, std::string tip_sim,  bool act_sim)
+    : Electronico(nom, pre, mar, tam, cond, cant), memoria(mem), sim(num_sim, oper_sim, tip_sim, act_sim) {}
 
-        std::string getNombre();
-        float getPrecio();
-        int getMemoria();
-        std::string getMarca();
-        float getTamano();
-        std::string getCondicion();
-        int getCantidad_disponible();
-
-        void setPrecio(float );
-        void setCondicion(std::string );
-        void setCantidad_disponible(int );
-
-        void mostrar_info();
-        float calcular_valor_stock();
+    int getMemoria() const;
+    const Sim &getSim() const;
+    void setSim(const Sim &s);
+    void mostrar_info() const;
 };
 
-        std::string Smartphone::getNombre(){
-            return nombre;
-        }
-
-        float Smartphone::getPrecio(){
-            return precio;
-        }
-
-        std::string Smartphone::getMarca(){
-            return marca;
-        }
-
-        int Smartphone::getMemoria(){
+        int Smartphone::getMemoria() const {
             return memoria;
         }
 
-        float Smartphone::getTamano(){
-            return tamano;
+        const Sim &Smartphone::getSim() const {
+            return sim;
         }
 
-        std::string Smartphone::getCondicion(){
-            return condicion;
+        void Smartphone::setSim(const Sim &s) {
+            sim = s;
         }
 
-        int Smartphone::getCantidad_disponible(){
-            return cantidad_disponible;
-        }
-
-        void Smartphone::setPrecio(float pre){
-            precio = pre;
-        }
-
-        void Smartphone::setCondicion(std::string cond){
-            condicion = cond;
-        }
-
-        void Smartphone::setCantidad_disponible(int cant){
-            cantidad_disponible = cant;
-        }
-
-        float Smartphone::calcular_valor_stock(){
-            return precio * cantidad_disponible;
-        }
-        void Smartphone::mostrar_info(){
+        void Smartphone::mostrar_info() const {
             std::cout << "Nombre: " << nombre
                       << "\nPrecio: $" << precio
                       << "\nMarca: " << marca
                       << "\nMemoria: " << memoria << " GB"
+                      << "\nSIM: \n" 
+                      << "\n - " << sim.getNumero() << " (" << sim.getOperador() << ")"
+                      << "\n - " << sim.getTipo() << " (" << (sim.getActivo() ? "Activo" : "Inactivo") << ")"
                       << "\nCondición: " << condicion
                       << "\nTamaño: " << tamano << " pulgadas"
                       << "\nCantidad disponible: " << cantidad_disponible
-                      << "\nValor total en stock: $" << calcular_valor_stock()
+                      << "\nValor total en stock: $" << calcular_valor_stock() 
                       << "\n\n";
         }
+#endif
