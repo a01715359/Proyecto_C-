@@ -7,3 +7,6 @@ En este programa, el usuario es un empleado de la empresa y debe ingresar la inf
 Además, el sistema cuenta con un inventario que permite organizar todos los productos en un solo lugar. Esto facilita buscarlos, modificar su información y prepararlos para la venta. Es importante tener en cuenta que los productos pueden existir dentro o fuera del inventario. Agregar un producto al inventario simplemente lo registra, y quitarlo no significa que el producto desaparezca del almacén. Incluso si el inventario fuera eliminado, los productos seguirían existiendo, ya que no dependen directamente de él.
 
 Por otro lado, la relación entre los celulares y las tarjetas SIM funciona de manera distinta. En este sistema, una tarjeta SIM no puede existir si no está asociada a un celular. Cada SIM va ligada a un teléfono y se gestiona junto con él. Por esa razón, si se elimina un celular del sistema, también se eliminan las tarjetas SIM que tenga asociadas, ya que no tienen utilidad por sí solas.
+
+### Instrucciones
+Descarga los archivos y corre el programa en la terminal. Añade la información del artículo que desees, sin embargo, recuerda asegurarte de ingresar de forma correcta el tipo de dato. 
