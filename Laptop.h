@@ -14,10 +14,10 @@ class Laptop: public Electronico{
         Laptop(): Electronico(), procesador(""), ram(0){};
         Laptop(std::string nom, float pre, std::string mar, std::string pro, float tam, int r, std::string cond, int cant): Electronico(nom, pre, mar, tam, cond, cant), procesador(pro), ram(r){}
 
-        std::string getProcesador();
-        int getRam();
+    std::string getProcesador();
+    int getRam();
 
-        void mostrar_info() const;
+    void mostrar_info();
 
 };
 
@@ -29,7 +29,7 @@ class Laptop: public Electronico{
             return ram;
         }
 
-        void Laptop::mostrar_info() const{
+        void Laptop::mostrar_info(){
             std::cout << "Nombre: " << nombre
                       << "\nPrecio: $" << precio
                       << "\nMarca: " << marca
