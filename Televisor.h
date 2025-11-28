@@ -18,7 +18,7 @@ class Televisor: public Electronico{
         std::string getTipo_pantalla();
         std::string getSmartTV();
 
-        void mostrar_info() const;
+    void mostrar_info();
 };
 
         std::string Televisor::getTipo_pantalla(){
@@ -29,7 +29,7 @@ class Televisor: public Electronico{
             return smartTV;
         }
 
-        void Televisor::mostrar_info() const {
+        void Televisor::mostrar_info() {
             std::cout << "Nombre: " << nombre
                       << "\nPrecio: $" << precio
                       << "\nMarca: " << marca
