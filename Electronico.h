@@ -3,6 +3,8 @@
 
 #include <iostream>
 #include <string>
+#include <limits>
+#include <sstream>
 
 class Electronico{
     protected:
@@ -29,8 +31,8 @@ class Electronico{
         void setCondicion(std::string);
         void setCantidad_disponible(int);
 
-    float calcular_valor_stock();
-    void mostrar_info();
+        float calcular_valor_stock();
+        std::string mostrar_info();
 };
 
         std::string Electronico::getNombre(){
@@ -66,14 +68,16 @@ class Electronico{
         float Electronico::calcular_valor_stock(){
             return precio * cantidad_disponible;
         }
-        void Electronico::mostrar_info(){
-            std::cout << "Nombre: " << nombre << std::endl;
-            std::cout << "Precio: $" << precio << std::endl;
-            std::cout << "Marca: " << marca << std::endl;
-            std::cout << "Tamaño: " << tamano << " pulgadas" << std::endl;
-            std::cout << "Condición: " << condicion << std::endl;
-            std::cout << "Cantidad disponible: " << cantidad_disponible << std::endl;
-            std::cout << "Valor total del stock: $" << calcular_valor_stock() << std::endl;
+        std::string Electronico::mostrar_info(){
+            std::stringstream info;
+            info << "Nombre: " << nombre << std::endl;
+            info << "Precio: $" << precio << std::endl;
+            info << "Marca: " << marca << std::endl;
+            info << "Tamaño: " << tamano << " pulgadas" << std::endl;
+            info << "Condición: " << condicion << std::endl;
+            info << "Cantidad disponible: " << cantidad_disponible << std::endl;
+            info << "Valor total del stock: $" << calcular_valor_stock() << std::endl;
+            return info.str();
         }
 
 #endif
