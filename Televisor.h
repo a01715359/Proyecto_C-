@@ -4,6 +4,8 @@
 #include <iostream>
 #include <string>
 #include "Electronico.h"
+#include <sstream>
+#include <limits>
 
 class Televisor: public Electronico{
     private:
@@ -17,8 +19,7 @@ class Televisor: public Electronico{
 
         std::string getTipo_pantalla();
         std::string getSmartTV();
-
-    void mostrar_info();
+        std::string mostrar_info();
 };
 
         std::string Televisor::getTipo_pantalla(){
@@ -29,17 +30,17 @@ class Televisor: public Electronico{
             return smartTV;
         }
 
-        void Televisor::mostrar_info() {
-            std::cout << "Nombre: " << nombre
-                      << "\nPrecio: $" << precio
-                      << "\nMarca: " << marca
-                      << "\nTipo de pantalla: " << tipo_pantalla
-                      << "\nTamaño: " << tamano << " pulgadas"
-                      << "\nEs Smart TV: " << smartTV
-                      << "\nCondición: " << condicion
-                      << "\nCantidad disponible: " << cantidad_disponible
-                      << "\nValor total en stock: $" << calcular_valor_stock()
-                      << "\n\n";
+        std::string Televisor::mostrar_info(){
+            std::stringstream info;
+            info << "Nombre: " << nombre << std::endl;
+            info << "Precio: $" << precio << std::endl;
+            info << "Marca: " << marca << std::endl;
+            info << "Tipo de pantalla: " << tipo_pantalla << std::endl;
+            info << "Tamaño: " << tamano << " pulgadas" << std::endl;
+            info << "Es Smart TV: " << smartTV << std::endl;
+            info << "Condición: " << condicion << std::endl;
+            info << "Cantidad disponible: " << cantidad_disponible << std::endl;
+            info << "Valor total en stock: $" << calcular_valor_stock() << std::endl;
+            return info.str();
         }
-
 #endif
