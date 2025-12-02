@@ -3,6 +3,8 @@
 
 #include <iostream>
 #include <string>
+#include <sstream>
+#include <limits>
 
 class Sim{
     private:
@@ -21,7 +23,7 @@ class Sim{
     bool getActivo();
 
     void setActivo(bool act_sim);
-    void mostrar_info();
+    std::string mostrar_info();
 };
 
 std::string Sim::getNumero(){
@@ -44,12 +46,13 @@ void Sim::setActivo(bool act_sim){
     activo = act_sim;
 }
 
-void Sim::mostrar_info(){
-    std::cout << "Número: " << numero << std::endl;
-    std::cout << "Operador: " << operador << std::endl;
-    std::cout << "Tipo: " << tipo << std::endl;
-    std::cout << "Estado: " << (activo ? "Activo" : "Inactivo") << std::endl;
-    std::cout << std::endl;
+std::string Sim::mostrar_info(){
+    std::stringstream info;
+    info << "Número: " << numero << std::endl;
+    info << "Operador: " << operador << std::endl;
+    info << "Tipo: " << tipo << std::endl;
+    info << "Estado: " << (activo ? "Activo" : "Inactivo") << std::endl;
+    return info.str();
 }
 
 #endif
