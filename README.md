@@ -16,4 +16,3 @@ Añade la información del artículo que desees, sin embargo, recuerda asegurart
 Compilar con: ´g++ main.cpp -o main´
 Correr en linux: ´main.out´
 Correr en Windows: ´.\/main.exe´
-Correr en Mac: ´./a.out´
