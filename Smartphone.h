@@ -5,6 +5,8 @@
 #include <string>
 #include "Electronico.h"
 #include "Sim.h"
+#include <sstream>
+#include <limits>
 
 class Smartphone: public Electronico{
     private:
@@ -20,7 +22,7 @@ class Smartphone: public Electronico{
     Sim getSim();
     void setSim(Sim &s);
 
-    void mostrar_info();
+    std::string mostrar_info();
 };
 
         int Smartphone::getMemoria() {
@@ -35,18 +37,20 @@ class Smartphone: public Electronico{
             sim = s;
         }
 
-        void Smartphone::mostrar_info() {
-            std::cout << "Nombre: " << nombre
-                      << "\nPrecio: $" << precio
-                      << "\nMarca: " << marca
-                      << "\nMemoria: " << memoria << " GB"
-                      << "\nSIM: \n" 
-                      << "\n - " << sim.getNumero() << " (" << sim.getOperador() << ")"
-                      << "\n - " << sim.getTipo() << " (" << (sim.getActivo() ? "Activo" : "Inactivo") << ")"
-                      << "\nCondición: " << condicion
-                      << "\nTamaño: " << tamano << " pulgadas"
-                      << "\nCantidad disponible: " << cantidad_disponible
-                      << "\nValor total en stock: $" << calcular_valor_stock() 
-                      << "\n\n";
+        std::string Smartphone::mostrar_info() {
+            std::stringstream info;
+            info << "Nombre: " << nombre << std::endl;
+            info << "Precio: $" << precio << std::endl;
+            info << "Marca: " << marca << std::endl;
+            info << "Memoria: " << memoria << " GB" << std::endl;
+            info << "SIM: \n" << sim.mostrar_info();
+            info << " - " << sim.getNumero() << " (" << sim.getOperador() << ")" << std::endl;
+            info << " - " << sim.getTipo() << " (" << (sim.getActivo() ? "Activo" : "Inactivo") << ")" << std::endl;
+            info << "Condición: " << condicion << std::endl;
+            info << "Tamaño: " << tamano << " pulgadas" << std::endl;
+            info << "Cantidad disponible: " << cantidad_disponible << std::endl;
+            info << "Valor total en stock: $" << calcular_valor_stock() << std::endl;
+                return info.str();
         }
+
 #endif
