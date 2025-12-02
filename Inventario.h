@@ -3,9 +3,11 @@
 
 #include <iostream>
 #include <string>
+#include <sstream>
 #include "Laptop.h"
 #include "Smartphone.h"
 #include "Televisor.h"
+
 
 class Inventario{
     private:
@@ -29,16 +31,16 @@ class Inventario{
         return cantidad_televisores;
     }
 
-    void agregarLaptop(const Laptop& laptop);
-    void agregarSmartphone(const Smartphone& smartphone);
-    void agregarTelevisor(const Televisor& televisor);
+    void agregarLaptop(Laptop& laptop);
+    void agregarSmartphone(Smartphone& smartphone);
+    void agregarTelevisor(Televisor& televisor);
     void modificarLaptop(int index, float nuevo_precio, std::string nueva_condicion, int nueva_cantidad);
     void modificarSmartphone(int index, float nuevo_precio, std::string nueva_condicion, int nueva_cantidad);
     void modificarTelevisor(int index, float nuevo_precio, std::string nueva_condicion, int nueva_cantidad);
-    void mostrarInventario();
+    std::string mostrarInventario();
 };
 
-    void Inventario:: agregarLaptop(const Laptop& laptop){
+    void Inventario:: agregarLaptop(Laptop& laptop){
         if (cantidad_laptops < 1000) {
             laptops[cantidad_laptops] = laptop;
             cantidad_laptops++;
@@ -47,7 +49,7 @@ class Inventario{
         }
     }
 
-    void Inventario::agregarSmartphone(const Smartphone& smartphone){
+    void Inventario::agregarSmartphone(Smartphone& smartphone){
         if (cantidad_smartphones < 1000) {
             smartphones[cantidad_smartphones] = smartphone;
             cantidad_smartphones++;
@@ -56,7 +58,7 @@ class Inventario{
         }
     }
 
-    void Inventario::agregarTelevisor(const Televisor& televisor){
+    void Inventario::agregarTelevisor(Televisor& televisor){
         if (cantidad_televisores < 1000) {
             televisores[cantidad_televisores] = televisor;
             cantidad_televisores++;
@@ -97,24 +99,24 @@ class Inventario{
         }
     }
 
-    void Inventario::mostrarInventario(){
-        std::cout << "=== Laptops ===\n";
+    std::string Inventario::mostrarInventario(){
+        std::stringstream ss;
+        ss << "=== Laptops ===\n";
         for(int i = 0; i < cantidad_laptops; i++){
-            std::cout << "[" << i << "]\n";
-            laptops[i].mostrar_info();
+            ss << "[" << i << "]\n";
+            ss << laptops[i].mostrar_info();
         }
-
-        std::cout << "=== Smartphones ===\n";
-        for(int i = 0; i < cantidad_smartphones; i++){
-            std::cout << "[" << i << "]\n";
-            smartphones[i].mostrar_info();
+        ss << "=== Smartphones ===\n";
+        for(int i = 0; i < cantidad_smartphones; i++){                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                         
+            ss << "[" << i << "]\n";
+            ss << smartphones[i].mostrar_info();
         }
-
-        std::cout << "=== Televisores ===\n";
+        ss << "=== Televisores ===\n";
         for(int i = 0; i < cantidad_televisores; i++){
-            std::cout << "[" << i << "]\n";
-            televisores[i].mostrar_info();
+            ss << "[" << i << "]\n";
+            ss << televisores[i].mostrar_info();
         }
+        return ss.str();
     }
 
 #endif
