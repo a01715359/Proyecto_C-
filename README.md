@@ -8,6 +8,10 @@ Además, el sistema cuenta con un inventario que permite organizar todos los pro
 
 Por otro lado, la relación entre los celulares y las tarjetas SIM funciona de manera distinta. En este sistema, una tarjeta SIM no puede existir si no está asociada a un celular. Cada SIM va ligada a un teléfono y se gestiona junto con él. Por esa razón, si se elimina un celular del sistema, también se eliminan las tarjetas SIM que tenga asociadas, ya que no tienen utilidad por sí solas.
 
+
+### UML
+![uml]("./Diagrama de clases.png")
+
 ### Instrucciones
 Descarga los archivos y corre el programa en la terminal. 
 El programa solo corre en la consola y esta hecho con c++ standard por lo que corre en todos los sistemas operativos
