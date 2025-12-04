@@ -5,42 +5,42 @@
 #include <string>
 #include "Electronico.h"
 #include <sstream>
-#include <limits>
 
 class Televisor: public Electronico{
     private:
-        std::string tipo_pantalla;
+        std::string tipoPantalla;
         std::string smartTV;
 
     public:
-        Televisor(): Electronico(), tipo_pantalla(""), smartTV("No"){}
-        Televisor(std::string nom, float pre, std::string mar, std::string pan, float tam, std::string tv, std::string cond, int cant)
-        : Electronico(nom, pre, mar, tam, cond, cant), tipo_pantalla(pan), smartTV(tv) {}
+        Televisor(): 
+            Electronico(), tipoPantalla(""), smartTV("No"){}
+        Televisor(std::string nom, float pre, std::string mar, std::string pan, float tam, std::string tv, std::string cond, int cant):
+            Electronico(nom, pre, mar, tam, cond, cant), tipoPantalla(pan), smartTV(tv) {}
 
-        std::string getTipo_pantalla();
+        std::string getTipoPantalla();
         std::string getSmartTV();
-        std::string mostrar_info();
+        std::string mostrarInfo();
 };
 
-        std::string Televisor::getTipo_pantalla(){
-            return tipo_pantalla;
-        }
+std::string Televisor::getTipoPantalla(){
+    return tipoPantalla;
+}
 
-        std::string Televisor::getSmartTV(){
-            return smartTV;
-        }
+std::string Televisor::getSmartTV(){
+    return smartTV;
+}
 
-        std::string Televisor::mostrar_info(){
-            std::stringstream info;
-            info << "Nombre: " << nombre << std::endl;
-            info << "Precio: $" << precio << std::endl;
-            info << "Marca: " << marca << std::endl;
-            info << "Tipo de pantalla: " << tipo_pantalla << std::endl;
-            info << "Tamaño: " << tamano << " pulgadas" << std::endl;
-            info << "Es Smart TV: " << smartTV << std::endl;
-            info << "Condición: " << condicion << std::endl;
-            info << "Cantidad disponible: " << cantidad_disponible << std::endl;
-            info << "Valor total en stock: $" << calcular_valor_stock() << std::endl;
-            return info.str();
-        }
+std::string Televisor::mostrarInfo(){
+    std::stringstream info;
+    info << "Nombre: " << nombre << std::endl;
+    info << "Precio: $" << precio << std::endl;
+    info << "Marca: " << marca << std::endl;
+    info << "Tipo de pantalla: " << tipoPantalla << std::endl;
+    info << "Size: " << tamano << " pulgadas" << std::endl;
+    info << "Es Smart TV: " << smartTV << std::endl;
+    info << "Condicion: " << condicion << std::endl;
+    info << "Cantidad disponible: " << cantidadDisponible << std::endl;
+    info << "Valor total en stock: $" << calcularValorStock() << std::endl;
+    return info.str();
+}
 #endif
