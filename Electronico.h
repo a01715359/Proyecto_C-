@@ -3,7 +3,6 @@
 
 #include <iostream>
 #include <string>
-#include <limits>
 #include <sstream>
 
 class Electronico{
@@ -13,71 +12,72 @@ class Electronico{
         std::string marca;
         float tamano;
         std::string condicion;
-        int cantidad_disponible;
+        int cantidadDisponible;
 
     public:
-        Electronico(): nombre(""), precio(0.0), marca(""), tamano(0.0), condicion(""), cantidad_disponible(0){};
+        Electronico(): 
+            nombre(""), precio(0.0), marca(""), tamano(0.0), condicion(""), cantidadDisponible(0){};
         Electronico(std::string nom, float pre, std::string mar, float tam, std::string cond, int cant): 
-        nombre(nom), precio(pre), marca(mar), tamano(tam), condicion(cond), cantidad_disponible(cant){}
+            nombre(nom), precio(pre), marca(mar), tamano(tam), condicion(cond), cantidadDisponible(cant){}
         
         std::string getNombre();
         float getPrecio();
         std::string getMarca();
         float getTamano();
         std::string getCondicion();
-        int getCantidad_disponible();
+        int getCantidadDisponible();
 
         void setPrecio(float);
         void setCondicion(std::string);
-        void setCantidad_disponible(int);
+        void setCantidadDisponible(int);
 
-        float calcular_valor_stock();
-        std::string mostrar_info();
+        float calcularValorStock();
+        std::string mostrarInfo();
 };
 
-        std::string Electronico::getNombre(){
-            return nombre;
-        }
+std::string Electronico::getNombre(){
+    return nombre;
+}
 
-        float Electronico::getPrecio(){
-            return precio;
-        }
+float Electronico::getPrecio(){
+    return precio;
+}
 
-        std::string Electronico::getMarca(){
-            return marca;
-        }
+std::string Electronico::getMarca(){
+    return marca;
+}
 
-        float Electronico::getTamano(){
-            return tamano;
-        }
-        std::string Electronico::getCondicion(){
-            return condicion;
-        }
-        int Electronico::getCantidad_disponible(){
-            return cantidad_disponible;
-        }
-        void Electronico::setPrecio(float pre){
-            precio = pre;
-        }
-        void Electronico::setCondicion(std::string cond){
-            condicion = cond;
-        }
-        void Electronico::setCantidad_disponible(int cant){
-            cantidad_disponible = cant;
-        }
-        float Electronico::calcular_valor_stock(){
-            return precio * cantidad_disponible;
-        }
-        std::string Electronico::mostrar_info(){
-            std::stringstream info;
-            info << "Nombre: " << nombre << std::endl;
-            info << "Precio: $" << precio << std::endl;
-            info << "Marca: " << marca << std::endl;
-            info << "Tamaño: " << tamano << " pulgadas" << std::endl;
-            info << "Condición: " << condicion << std::endl;
-            info << "Cantidad disponible: " << cantidad_disponible << std::endl;
-            info << "Valor total del stock: $" << calcular_valor_stock() << std::endl;
-            return info.str();
-        }
+float Electronico::getTamano(){
+    return tamano;
+}
+std::string Electronico::getCondicion(){
+    return condicion;
+}
+int Electronico::getCantidadDisponible(){
+    return cantidadDisponible;
+}
+void Electronico::setPrecio(float pre){
+    precio = pre;
+}
+void Electronico::setCondicion(std::string cond){
+    condicion = cond;
+}
+void Electronico::setCantidadDisponible(int cant){
+    cantidadDisponible = cant;
+}
+float Electronico::calcularValorStock(){
+    return precio * cantidadDisponible;
+}
+std::string Electronico::mostrarInfo(){
+    std::stringstream info;
+    info << "Nombre: " << nombre << std::endl;
+    info << "Precio: $" << precio << std::endl;
+    info << "Marca: " << marca << std::endl;
+    info << "Size: " << tamano << " pulgadas" << std::endl;
+    info << "Condicion: " << condicion << std::endl;
+    info << "Cantidad disponible: " << cantidadDisponible << std::endl;
+    info << "Valor total del stock: $" << calcularValorStock() << std::endl;
+    return info.str();
+}
 
 #endif
