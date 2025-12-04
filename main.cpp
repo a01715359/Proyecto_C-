@@ -7,10 +7,10 @@
 #include "Televisor.h"
 #include "Inventario.h"
 
-int get_int(int min_val){
+int getInt(int minVal){
     int number;
     while (true) {
-        if (std::cin >> number && number >= min_val) {
+        if (std::cin >> number && number >= minVal) {
             return number;
         }
         std::cout << "Entrada invalida, intenta otra vez.\n";
@@ -19,10 +19,10 @@ int get_int(int min_val){
     }
 }
 
-float get_float(float min_val){
+float getFloat(float minVal){
   float number;
   while (true) {
-      if (std::cin >> number && number >= min_val) {
+      if (std::cin >> number && number >= minVal) {
           return number;
       }
       std::cout << "Entrada inválida, intenta otra vez." << std::endl;
@@ -32,7 +32,7 @@ float get_float(float min_val){
   }
 }
 
-std::string validar_tipo_sim(std::string dato){
+std::string validarTipoSim(std::string dato){
     while (dato != "Nano" && dato != "Micro" 
         && dato != "nano" && dato != "micro"
         && dato != "NANO" && dato != "MICRO"){
@@ -42,7 +42,7 @@ std::string validar_tipo_sim(std::string dato){
     return dato;
 }
 
-std::string validar_condicion(std::string dato){
+std::string validarCondicion(std::string dato){
     while (dato != "Nuevo" && dato != "Usado" && dato != "Reacondicionado" 
         && dato != "nuevo" && dato != "usado" && dato != "reacondicionado"
         && dato != "NUEVO" && dato != "USADO" && dato != "REACONDICIONADO"){
@@ -52,7 +52,7 @@ std::string validar_condicion(std::string dato){
     return dato;
 }
 
-std::string validar_producto(std::string dato){
+std::string validarProducto(std::string dato){
     while (dato != "Celular" && dato != "Laptop" && dato != "Televisor"
         && dato != "celular" && dato != "laptop" && dato != "televisor"
         && dato != "CELULAR" && dato != "LAPTOP" && dato != "TELEVISOR"){
@@ -63,14 +63,7 @@ std::string validar_producto(std::string dato){
 }
 
 int main(){
-    //bool menu = true;
-
-    //Smartphone celular;
-    //Laptop computadora;
-    //Televisor tv;
-
     Inventario inventario;
-
     std::string opcion = "0";
 
     while (opcion != "6"){
@@ -87,9 +80,9 @@ int main(){
         // ================ AGREGAR CELULAR =============
         if (opcion == "1"){
             std::string nombre, marca, condicion;
-            int memoria, cantidad_disponible;
+            int memoria, cantidadDisponible;
             float precio, tamano;
-            std::string num_sim, oper_sim, tipo_sim;
+            std::string numSim, operSim, tipoSim;
 
             std::cout << "=== Agregar Celular ===\n\n";
 
@@ -97,64 +90,63 @@ int main(){
             std::getline(std::cin, nombre);
 
             std::cout << "Precio: ";
-            precio = get_float(1.0);
+            precio = getFloat(1.0);
             std::cin.ignore(1000, '\n');
 
             std::cout << "Marca: ";
             std::getline(std::cin, marca);
 
             std::cout << "Memoria (en GB): ";
-            memoria = get_int(1);
+            memoria = getInt(1);
             std::cin.ignore(1000, '\n');
 
             std::cout << "Tamaño (en pulgadas): ";
-            tamano = get_float(1.0);
+            tamano = getFloat(1.0);
             std::cin.ignore(1000, '\n');
 
             std::cout << "Condicion (Nuevo/Usado/Reacondicionado): ";
             std::getline(std::cin, condicion);
-            condicion = validar_condicion(condicion);
+            condicion = validarCondicion(condicion);
 
             std::cout << "Cantidad disponible: ";
-            cantidad_disponible = get_int(1);
+            cantidadDisponible = getInt(1);
             std::cin.ignore(1000, '\n');
 
             std::cout << "Numero de SIM: ";
-            std::getline(std::cin, num_sim);
+            std::getline(std::cin, numSim);
 
             std::cout << "Operador de SIM: ";
-            std::getline(std::cin, oper_sim);
+            std::getline(std::cin, operSim);
 
             std::cout << "Tipo de SIM: (Nano/Micro) ";
-            std::getline(std::cin, tipo_sim);
-            tipo_sim = validar_tipo_sim(tipo_sim);
+            std::getline(std::cin, tipoSim);
+            tipoSim = validarTipoSim(tipoSim);
 
-            int activo_sim_input;
+            int activoSimInput;
             std::cout << "¿Esta activa la SIM? (1: Sí, 0: No): ";
-            activo_sim_input = get_int(0);
+            activoSimInput = getInt(0);
 
-            while (activo_sim_input != 0 && activo_sim_input != 1) {
+            while (activoSimInput != 0 && activoSimInput != 1) {
                 std::cout << "Valor invalido. Ingrese 1 (Si) o 0 (No): ";
-                activo_sim_input = get_int(0);
+                activoSimInput = getInt(0);
             }
 
-            bool activo_sim = (activo_sim_input == 1);
+            bool activoSim = (activoSimInput == 1);
 
 
             // Constructor: Smartphone
-            Smartphone celular(nombre, precio, marca, memoria, tamano, condicion, cantidad_disponible,
-                                 num_sim, oper_sim, tipo_sim, activo_sim);
+            Smartphone celular(nombre, precio, marca, memoria, tamano, condicion, cantidadDisponible,
+                                 numSim, operSim, tipoSim, activoSim);
             inventario.agregarSmartphone(celular);
-            std::cout << "\nSmartphone agregado:\n";
-            //index_cel = inventario.getCantidad_smartphones() - 1;
-            std::cout << celular.mostrar_info();
+            std::cout << "\nSMARTPHONE AGREGADO:\n\n";
+            std::cout << celular.mostrarInfo();
         }
 
         // ================ AGREGAR LAPTOP ==============
         else if (opcion == "2"){
             std::string nombre, marca, procesador, condicion;
             float precio, tamano;
-            int ram, cantidad_disponible;
+            int ram, cantidadDisponible;
 
             std::cout << "=== Agregar Laptop ===\n\n";
 
@@ -162,7 +154,7 @@ int main(){
             std::getline(std::cin, nombre);
 
             std::cout << "Precio: ";
-            precio = get_float(1.0);
+            precio = getFloat(1.0);
             std::cin.ignore(1000, '\n');
 
             std::cout << "Marca: ";
@@ -172,33 +164,32 @@ int main(){
             std::getline(std::cin, procesador);
 
             std::cout << "Tamaño (en pulgadas): ";
-            tamano = get_float(1.0);
+            tamano = getFloat(1.0);
             std::cin.ignore(1000, '\n');
 
             std::cout << "RAM (en GB): ";
-            ram = get_int(1);
+            ram = getInt(1);
             std::cin.ignore(1000, '\n');
 
             std::cout << "Condicion (Nuevo/Usado/Reacondicionado): ";
             std::getline(std::cin, condicion);
-            condicion = validar_condicion(condicion);
+            condicion = validarCondicion(condicion);
 
             std::cout << "Cantidad disponible: ";
-            cantidad_disponible = get_int(1);
+            cantidadDisponible = getInt(1);
             std::cin.ignore(1000, '\n');
 
             // Constructor: Laptop
-            Laptop computadora(nombre, precio, marca, procesador, tamano, ram, condicion, cantidad_disponible);
+            Laptop computadora(nombre, precio, marca, procesador, tamano, ram, condicion, cantidadDisponible);
             inventario.agregarLaptop(computadora);
-            std::cout << "\nLaptop agregada:\n";
-            //index_lap = inventario.getCantidad_laptops() - 1;
-            std::cout << computadora.mostrar_info();
+            std::cout << "\nLAPTOP AGREGADA:\n\n";
+            std::cout << computadora.mostrarInfo();
         }
         // ================ AGREGAR TELEVISOR ===========
         else if (opcion == "3"){
-            std::string nombre, marca, tipo_pantalla, smartTV, condicion;
+            std::string nombre, marca, tipoPantalla, smartTV, condicion;
             float precio, tamano;
-            int cantidad_disponible;
+            int cantidadDisponible;
 
             std::cout << "=== Agregar Televisor ===\n\n";
 
@@ -206,17 +197,17 @@ int main(){
             std::getline(std::cin, nombre);
 
             std::cout << "Precio: ";
-            precio = get_float(1.0);
+            precio = getFloat(1.0);
             std::cin.ignore(1000, '\n');
 
             std::cout << "Marca: ";
             std::getline(std::cin, marca);
 
             std::cout << "Tipo de pantalla: ";
-            std::getline(std::cin, tipo_pantalla);
+            std::getline(std::cin, tipoPantalla);
 
             std::cout << "Tamaño (en pulgadas): ";
-            tamano = get_float(1.0);
+            tamano = getFloat(1.0);
             std::cin.ignore(1000, '\n');
 
             std::cout << "¿Es Smart TV? (Si/No): ";
@@ -230,17 +221,17 @@ int main(){
 
             std::cout << "Condicion (Nuevo/Usado/Reacondicionado): ";
             std::getline(std::cin, condicion);
-            condicion = validar_condicion(condicion);
+            condicion = validarCondicion(condicion);
 
             std::cout << "Cantidad disponible: ";
-            cantidad_disponible = get_int(1);
+            cantidadDisponible = getInt(1);
             std::cin.ignore(1000, '\n');
 
             // Constructor: Televisor
-            Televisor tv(nombre, precio, marca, tipo_pantalla, tamano, smartTV, condicion, cantidad_disponible);
+            Televisor tv(nombre, precio, marca, tipoPantalla, tamano, smartTV, condicion, cantidadDisponible);
             inventario.agregarTelevisor(tv);
-            //index_tv = inventario.getCantidad_televisores() - 1;
-            std::cout << tv.mostrar_info();
+            std::cout << "\nTELEVISOR AGREGADO:\n\n";
+            std::cout << tv.mostrarInfo();
         }
         // =================== MODIFICAR ===============
         else if (opcion == "4"){
@@ -248,32 +239,32 @@ int main(){
             std::string modificar;
             std::cout << "Ingrese el producto a modificar (celular/laptop/televisor): ";
             std::getline(std::cin, modificar);
-            modificar = validar_producto(modificar);
+            modificar = validarProducto(modificar);
 
             std::string cond;
             float pre;
             int cant;
 
             if (modificar == "celular" || modificar == "Celular" || modificar == "CELULAR"){
-                if (inventario.getCantidad_smartphones() > 0){
+                if (inventario.getCantidadSmartphones() > 0){
                     std::cout << inventario.mostrarInventario();
-                    std::cout << "Ingrese el índice del celular a modificar (0 - " << inventario.getCantidad_smartphones() - 1 << "): ";
+                    std::cout << "Ingrese el índice del celular a modificar (0 - " << inventario.getCantidadSmartphones() - 1 << "): ";
                     int idx;
                     std::cin >> idx;
                     std::cin.ignore(1000, '\n');
 
-                    if (idx < 0 || idx >= inventario.getCantidad_smartphones()){
+                    if (idx < 0 || idx >= inventario.getCantidadSmartphones()){
                         std::cout << "Indice invalido. Operacion cancelada.\n";
                     }
                     else{
                         std::cout << "Ingrese la nueva condicion: ";
                         std::getline(std::cin, cond);
-                        cond = validar_condicion(cond);
+                        cond = validarCondicion(cond);
                         std::cout << "Nuevo precio: ";
-                        pre = get_float(1.0);
+                        pre = getFloat(1.0);
                         std::cin.ignore(1000, '\n');
                         std::cout << "Nueva cantidad: ";
-                        cant = get_int(1);
+                        cant = getInt(1);
                         std::cin.ignore(1000, '\n');
                         
                         inventario.modificarSmartphone(idx, pre, cond, cant);
@@ -284,25 +275,25 @@ int main(){
                 }
             }
             else if (modificar == "laptop" || modificar == "Laptop" || modificar == "LAPTOP"){
-                if (inventario.getCantidad_laptops() > 0){
+                if (inventario.getCantidadLaptops() > 0){
                     std::cout << inventario.mostrarInventario();
-                    std::cout << "Ingrese el indice de la laptop a modificar (0 - " << inventario.getCantidad_laptops() - 1 << "): ";
+                    std::cout << "Ingrese el indice de la laptop a modificar (0 - " << inventario.getCantidadLaptops() - 1 << "): ";
                     int idx;
                     std::cin >> idx;
                     std::cin.ignore(1000, '\n');
 
-                    if (idx < 0 || idx >= inventario.getCantidad_laptops()){
+                    if (idx < 0 || idx >= inventario.getCantidadLaptops()){
                         std::cout << "Indice invalido. Operacion cancelada.\n";
                     }
                     else{
                         std::cout << "Ingrese la nueva condicion: ";
                         std::getline(std::cin, cond);
-                        cond = validar_condicion(cond);
+                        cond = validarCondicion(cond);
                         std::cout << "Nuevo precio: ";
-                        pre = get_float(1.0);
+                        pre = getFloat(1.0);
                         std::cin.ignore(1000, '\n');
                         std::cout << "Nueva cantidad: ";
-                        cant = get_int(1);
+                        cant = getInt(1);
                         std::cin.ignore(1000, '\n');
 
                         inventario.modificarLaptop(idx, pre, cond, cant);
@@ -313,24 +304,24 @@ int main(){
                 }
             }
             else if (modificar == "televisor" || modificar == "Televisor" || modificar == "TELEVISOR"){
-                if (inventario.getCantidad_televisores() > 0){
+                if (inventario.getCantidadTelevisores() > 0){
                     std::cout << inventario.mostrarInventario();
-                    std::cout << "Ingrese el indice del televisor a modificar (0 - " << inventario.getCantidad_televisores() - 1 << "): ";
+                    std::cout << "Ingrese el indice del televisor a modificar (0 - " << inventario.getCantidadTelevisores() - 1 << "): ";
                     int idx;
                     std::cin >> idx;
                     std::cin.ignore(1000, '\n');
-                    if (idx < 0 || idx >= inventario.getCantidad_televisores()){
+                    if (idx < 0 || idx >= inventario.getCantidadTelevisores()){
                         std::cout << "Indice invalido. Operacion cancelada.\n";
                     }
                     else{
                         std::cout << "Ingrese la nueva condicion: ";
                         std::getline(std::cin, cond);
-                        cond = validar_condicion(cond);
+                        cond = validarCondicion(cond);
                         std::cout << "Nuevo precio: ";
-                        pre = get_float(1.0);
+                        pre = getFloat(1.0);
                         std::cin.ignore(1000, '\n');
                         std::cout << "Nueva cantidad: ";
-                        cant = get_int(1);
+                        cant = getInt(1);
                         std::cin.ignore(1000, '\n');
 
                         inventario.modificarTelevisor(idx, pre, cond, cant);
