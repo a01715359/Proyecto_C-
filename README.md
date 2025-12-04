@@ -14,9 +14,8 @@ Por otro lado, la relación entre los celulares y las tarjetas SIM funciona de m
 
 
 ### Instrucciones
-Descarga los archivos y corre el programa en la terminal.
+Descarga los archivos y corre el programa en la terminal. El programa solo corre en la consola y esta hecho con c++ standard por lo que corre en todos los sistemas operativos.
 
-El programa solo corre en la consola y esta hecho con c++ standard por lo que corre en todos los sistemas operativos
 Añade la información del artículo que desees, sin embargo, recuerda asegurarte de ingresar de forma correcta el tipo de dato. 
 
 Compilar con: ´g++ main.cpp -o main´
