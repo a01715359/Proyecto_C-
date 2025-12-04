@@ -20,3 +20,14 @@ Añade la información del artículo que desees, sin embargo, recuerda asegurart
 Compilar con: ´g++ main.cpp -o main´
 Correr en linux: ´main.out´
 Correr en Windows: ´.\/main.exe´
+
+### Correcciones
+para este programa se relizaron las siguientes correcciones:
+
+1 Se arregló el estilo en las clases de Electronico.h, Inventario.h, Laptop.h, Televisor.h, SIM.h, Smartphone.h y en el main.cpp.
+
+2 Se validaron inputs en ciertas entradas para asegurarme de que el usuario ingrese el tipo de dato que se espera y que el programa no falle.
+
+3 Se corrigió la herencia en la clase de Smartphone.h para que el programa pudiera correr de forma adecuada.
+
+4 Antes en el menú solo estaba la opción de ver inventario cuando el usuario deseara salir del programa, ahora están separados en dos opciones distintas para que el usuario pueda ver el inventario en caso de que todavía no quiera salir. Al mismo tiempo, está la opción de salir del programa en caso de que el usuario no desea ver el inventario.
