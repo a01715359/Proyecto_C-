@@ -19,7 +19,9 @@ Descarga los archivos y corre el programa en la terminal. El programa solo corre
 Añade la información del artículo que desees, sin embargo, recuerda asegurarte de ingresar de forma correcta el tipo de dato. 
 
 Compilar con: ´g++ main.cpp -o main´
+
 Correr en linux: ´main.out´
+
 Correr en Windows: ´.\/main.exe´
 
 ### Correcciones
