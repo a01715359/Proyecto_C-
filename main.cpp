@@ -249,9 +249,7 @@ int main(){
                 if (inventario.getCantidadSmartphones() > 0){
                     std::cout << inventario.mostrarInventario();
                     std::cout << "Ingrese el índice del celular a modificar (0 - " << inventario.getCantidadSmartphones() - 1 << "): ";
-                    int idx;
-                    std::cin >> idx;
-                    std::cin.ignore(1000, '\n');
+                    int idx = getInt(0);
 
                     if (idx < 0 || idx >= inventario.getCantidadSmartphones()){
                         std::cout << "Indice invalido. Operacion cancelada.\n";
@@ -278,9 +276,7 @@ int main(){
                 if (inventario.getCantidadLaptops() > 0){
                     std::cout << inventario.mostrarInventario();
                     std::cout << "Ingrese el indice de la laptop a modificar (0 - " << inventario.getCantidadLaptops() - 1 << "): ";
-                    int idx;
-                    std::cin >> idx;
-                    std::cin.ignore(1000, '\n');
+                    int idx = getInt(0);
 
                     if (idx < 0 || idx >= inventario.getCantidadLaptops()){
                         std::cout << "Indice invalido. Operacion cancelada.\n";
@@ -307,9 +303,8 @@ int main(){
                 if (inventario.getCantidadTelevisores() > 0){
                     std::cout << inventario.mostrarInventario();
                     std::cout << "Ingrese el indice del televisor a modificar (0 - " << inventario.getCantidadTelevisores() - 1 << "): ";
-                    int idx;
-                    std::cin >> idx;
-                    std::cin.ignore(1000, '\n');
+                    int idx = getInt(0);
+                    
                     if (idx < 0 || idx >= inventario.getCantidadTelevisores()){
                         std::cout << "Indice invalido. Operacion cancelada.\n";
                     }
