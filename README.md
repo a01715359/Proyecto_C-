@@ -10,10 +10,11 @@ Por otro lado, la relación entre los celulares y las tarjetas SIM funciona de m
 
 
 ### UML
-<img width="4216" height="3429" alt="Diagrama de clases" src="https://github.com/user-attachments/assets/005cf253-11f1-40e9-9c16-9627fcad327b" />
+
 
 ### Instrucciones
-Descarga los archivos y corre el programa en la terminal. 
+Descarga los archivos y corre el programa en la terminal. <img width="4216" height="3429" alt="Diagrama de clases" src="https://github.com/user-attachments/assets/276b2e72-590c-4425-bf2c-6b70724a6cc8" />
+
 El programa solo corre en la consola y esta hecho con c++ standard por lo que corre en todos los sistemas operativos
 Añade la información del artículo que desees, sin embargo, recuerda asegurarte de ingresar de forma correcta el tipo de dato. 
 
