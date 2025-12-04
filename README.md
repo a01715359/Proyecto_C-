@@ -10,7 +10,7 @@ Por otro lado, la relación entre los celulares y las tarjetas SIM funciona de m
 
 
 ### UML
-![uml]("./Diagrama de clases.png")
+<img width="4216" height="3429" alt="Diagrama de clases" src="https://github.com/user-attachments/assets/005cf253-11f1-40e9-9c16-9627fcad327b" />
 
 ### Instrucciones
 Descarga los archivos y corre el programa en la terminal. 
