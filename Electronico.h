@@ -2,73 +2,84 @@
 #define ELECTRONICO_H
 
 #include <iostream>
-#include <string>
 #include <sstream>
+#include <string>
 
-class Electronico{
-    protected:
-        std::string nombre;
-        float precio;
-        std::string marca;
-        float tamano;
-        std::string condicion;
-        int cantidadDisponible;
+class Electronico {
+   protected:
+    std::string nombre;
+    float precio;
+    std::string marca;
+    float tamano;
+    std::string condicion;
+    int cantidadDisponible;
 
-    public:
-        Electronico(): 
-            nombre(""), precio(0.0), marca(""), tamano(0.0), condicion(""), cantidadDisponible(0){};
-        Electronico(std::string nom, float pre, std::string mar, float tam, std::string cond, int cant): 
-            nombre(nom), precio(pre), marca(mar), tamano(tam), condicion(cond), cantidadDisponible(cant){}
-        
-        std::string getNombre();
-        float getPrecio();
-        std::string getMarca();
-        float getTamano();
-        std::string getCondicion();
-        int getCantidadDisponible();
+   public:
+    Electronico()
+        : nombre(""),
+          precio(0.0),
+          marca(""),
+          tamano(0.0),
+          condicion(""),
+          cantidadDisponible(0) {};
+    Electronico(std::string nom, float pre, std::string mar, float tam,
+                std::string cond, int cant)
+        : nombre(nom),
+          precio(pre),
+          marca(mar),
+          tamano(tam),
+          condicion(cond),
+          cantidadDisponible(cant) {}
 
-        void setPrecio(float);
-        void setCondicion(std::string);
-        void setCantidadDisponible(int);
+    std::string getNombre();
+    float getPrecio();
+    std::string getMarca();
+    float getTamano();
+    std::string getCondicion();
+    int getCantidadDisponible();
 
-        float calcularValorStock();
-        std::string mostrarInfo();
+    void setPrecio(float);
+    void setCondicion(std::string);
+    void setCantidadDisponible(int);
+
+    float calcularValorStock();
+    std::string mostrarInfo();
 };
 
-std::string Electronico::getNombre(){
+std::string Electronico::getNombre() {
     return nombre;
 }
 
-float Electronico::getPrecio(){
+float Electronico::getPrecio() {
     return precio;
 }
 
-std::string Electronico::getMarca(){
+std::string Electronico::getMarca() {
     return marca;
 }
 
-float Electronico::getTamano(){
+float Electronico::getTamano() {
     return tamano;
 }
-std::string Electronico::getCondicion(){
+std::string Electronico::getCondicion() {
     return condicion;
 }
-int Electronico::getCantidadDisponible(){
+int Electronico::getCantidadDisponible() {
     return cantidadDisponible;
 }
-void Electronico::setPrecio(float pre){
+void Electronico::setPrecio(float pre) {
     precio = pre;
 }
-void Electronico::setCondicion(std::string cond){
+void Electronico::setCondicion(std::string cond) {
     condicion = cond;
 }
-void Electronico::setCantidadDisponible(int cant){
+void Electronico::setCantidadDisponible(int cant) {
     cantidadDisponible = cant;
 }
-float Electronico::calcularValorStock(){
+float Electronico::calcularValorStock() {
     return precio * cantidadDisponible;
 }
-std::string Electronico::mostrarInfo(){
+std::string Electronico::mostrarInfo() {
     std::stringstream info;
     info << "Nombre: " << nombre << std::endl;
     info << "Precio: $" << precio << std::endl;
