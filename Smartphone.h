@@ -1,12 +1,9 @@
-#ifndef SMARTPHONE_H
-#define SMARTPHONE_H
-
-#include <iostream>
-#include <sstream>
-#include <string>
-
-#include "Electronico.h"
-#include "Sim.h"
+/*
+ * Proyecto TecMarket
+ * Rashell Aleck Jiménez Almánzar
+ * A01715359
+ * 04/12/2025
+ */
 
 /*
  * Clase Smartphone
@@ -16,6 +13,16 @@
  * Hereda de la clase Electronico y permite consultar y modificar
  * sus atributos, incluyendo la información de la SIM.
  */
+
+#ifndef SMARTPHONE_H
+#define SMARTPHONE_H
+
+#include <iostream>
+#include <sstream>
+#include <string>
+
+#include "Electronico.h"
+#include "Sim.h"
 
 class Smartphone : public Electronico {
    private:
@@ -77,16 +84,6 @@ class Smartphone : public Electronico {
      */
     Sim getSim();
 
-    // Métodos setter
-
-    /**
-     * Establece o actualiza la SIM del smartphone.
-     *
-     * @param s Objeto Sim a asignar.
-     * @return
-     */
-    void setSim(Sim& s);
-
     /**
      * Genera una cadena con toda la información del smartphone.
      *
@@ -109,20 +106,16 @@ Sim Smartphone::getSim() {
     return sim;
 }
 
-void Smartphone::setSim(Sim& s) {
-    sim = s;
-}
-
 std::string Smartphone::mostrarInfo() {
     std::stringstream info;
-    info << "Nombre: " << nombre << std::endl;
-    info << "Precio: $" << precio << std::endl;
-    info << "Marca: " << marca << std::endl;
-    info << "Memoria: " << memoria << " GB" << std::endl;
-    info << "SIM: \n" << sim.mostrarInfo();
-    info << "Condicion: " << condicion << std::endl;
-    info << "Size: " << tamano << " pulgadas" << std::endl;
-    info << "Cantidad disponible: " << cantidadDisponible << std::endl;
+    info << "Nombre: " << getNombre() << std::endl;
+    info << "Precio: $" << getPrecio() << std::endl;
+    info << "Marca: " << getMarca() << std::endl;
+    info << "Memoria: " << getMemoria() << " GB" << std::endl;
+    info << "SIM: \n" << getSim().mostrarInfo();
+    info << "Condicion: " << getCondicion() << std::endl;
+    info << "Size: " << getTamano() << " pulgadas" << std::endl;
+    info << "Cantidad disponible: " << getCantidadDisponible() << std::endl;
     info << "Valor total en stock: $" << calcularValorStock() << std::endl;
     return info.str();
 }
