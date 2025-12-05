@@ -1,3 +1,20 @@
+
+/*
+ * Proyecto TecMarket
+ * Rashell Aleck Jiménez Almánzar
+ * A01715359
+ * 04/12/2025
+ */
+
+/*
+ * Clase Inventario
+ * Maneja colecciones de productos electrónicos: Laptops, Smartphones y
+ * Televisores.
+ *
+ * Permite agregar, modificar y consultar los productos del inventario,
+ * así como mostrar toda la información de manera organizada.
+ */
+
 #ifndef INVENTARIO_H
 #define INVENTARIO_H
 
@@ -9,22 +26,14 @@
 #include "Smartphone.h"
 #include "Televisor.h"
 
-/*
- * Clase Inventario
- * Maneja colecciones de productos electrónicos: Laptops, Smartphones y Televisores.
- *
- * Permite agregar, modificar y consultar los productos del inventario,
- * así como mostrar toda la información de manera organizada.
- */
-
 class Inventario {
    private:
-    Laptop laptops[1000];              // Arreglo de objetos Laptop
-    Smartphone smartphones[1000];      // Arreglo de objetos Smartphone
-    Televisor televisores[1000];       // Arreglo de objetos Televisor
-    int cantidadLaptops;               // Número actual de laptops en inventario
-    int cantidadSmartphones;           // Número actual de smartphones en inventario
-    int cantidadTelevisores;           // Número actual de televisores en inventario
+    Laptop laptops[1000];          // Arreglo de objetos Laptop
+    Smartphone smartphones[1000];  // Arreglo de objetos Smartphone
+    Televisor televisores[1000];   // Arreglo de objetos Televisor
+    int cantidadLaptops;           // Número actual de laptops en inventario
+    int cantidadSmartphones;  // Número actual de smartphones en inventario
+    int cantidadTelevisores;  // Número actual de televisores en inventario
 
    public:
     /**
