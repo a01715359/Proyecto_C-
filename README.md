@@ -2,6 +2,8 @@
 ### Contexto
 Una empresa lanzó una página web para vender productos tecnológicos. Para tener todo en orden y listo para mostrar en la plataforma, los empleados deben registrar los productos disponibles.
 
+### Funcionalidad
+
 En este programa, el usuario es un empleado de la empresa y debe ingresar la información de los productos que se van a vender. Existen varias clases de productos: celulares, laptops y televisores. Si algún dato cambia, como el precio, el estado del producto o la cantidad disponible, esta información se puede actualizar antes de que el artículo sea publicado en la tienda en línea.
 
 Además, el sistema cuenta con un inventario que permite organizar todos los productos en un solo lugar. Esto facilita buscarlos, modificar su información y prepararlos para la venta. Es importante tener en cuenta que los productos pueden existir dentro o fuera del inventario. Agregar un producto al inventario simplemente lo registra, y quitarlo no significa que el producto desaparezca del almacén. Incluso si el inventario fuera eliminado, los productos seguirían existiendo, ya que no dependen directamente de él.
@@ -12,7 +14,7 @@ Por otro lado, la relación entre los celulares y las tarjetas SIM funciona de m
 ### UML
 <img width="3140" height="2814" alt="Class Diagram" src="https://github.com/user-attachments/assets/b16ee61b-d6e1-4332-86da-696e9fca2391" />
 
-### Instrucciones
+### Instrucciones y consideraciones
 Descarga los archivos y corre el programa en la terminal. El programa solo corre en la consola y esta hecho con c++ standard por lo que corre en todos los sistemas operativos.
 
 Añade la información del artículo que desees, sin embargo, recuerda asegurarte de ingresar de forma correcta el tipo de dato. 
