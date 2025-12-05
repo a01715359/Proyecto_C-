@@ -2,35 +2,38 @@
 #define TELEVISOR_H
 
 #include <iostream>
-#include <string>
-#include "Electronico.h"
 #include <sstream>
+#include <string>
 
-class Televisor: public Electronico{
-    private:
-        std::string tipoPantalla;
-        std::string smartTV;
+#include "Electronico.h"
 
-    public:
-        Televisor(): 
-            Electronico(), tipoPantalla(""), smartTV("No"){}
-        Televisor(std::string nom, float pre, std::string mar, std::string pan, float tam, std::string tv, std::string cond, int cant):
-            Electronico(nom, pre, mar, tam, cond, cant), tipoPantalla(pan), smartTV(tv) {}
+class Televisor : public Electronico {
+   private:
+    std::string tipoPantalla;
+    std::string smartTV;
 
-        std::string getTipoPantalla();
-        std::string getSmartTV();
-        std::string mostrarInfo();
+   public:
+    Televisor() : Electronico(), tipoPantalla(""), smartTV("No") {}
+    Televisor(std::string nom, float pre, std::string mar, std::string pan,
+              float tam, std::string tv, std::string cond, int cant)
+        : Electronico(nom, pre, mar, tam, cond, cant),
+          tipoPantalla(pan),
+          smartTV(tv) {}
+
+    std::string getTipoPantalla();
+    std::string getSmartTV();
+    std::string mostrarInfo();
 };
 
-std::string Televisor::getTipoPantalla(){
+std::string Televisor::getTipoPantalla() {
     return tipoPantalla;
 }
 
-std::string Televisor::getSmartTV(){
+std::string Televisor::getSmartTV() {
     return smartTV;
 }
 
-std::string Televisor::mostrarInfo(){
+std::string Televisor::mostrarInfo() {
     std::stringstream info;
     info << "Nombre: " << nombre << std::endl;
     info << "Precio: $" << precio << std::endl;
