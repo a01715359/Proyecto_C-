@@ -1,9 +1,9 @@
-#ifndef SIM_H
-#define SIM_H
-
-#include <iostream>
-#include <sstream>
-#include <string>
+/*
+ * Proyecto TecMarket
+ * Rashell Aleck Jiménez Almánzar
+ * A01715359
+ * 04/12/2025
+ */
 
 /*
  * Clase Sim
@@ -14,12 +14,19 @@
  * generar información completa sobre sus atributos.
  */
 
+#ifndef SIM_H
+#define SIM_H
+
+#include <iostream>
+#include <sstream>
+#include <string>
+
 class Sim {
    private:
-    std::string numero;     // Número de la SIM
-    std::string operador;   // Operador de la SIM
-    std::string tipo;       // Tipo de SIM (prepago, pospago, etc.)
-    bool activo;            // Estado de la SIM (true = activa, false = inactiva)
+    std::string numero;    // Número de la SIM
+    std::string operador;  // Operador de la SIM
+    std::string tipo;      // Tipo de SIM (prepago, pospago, etc.)
+    bool activo;  // Estado de la SIM (true = activa, false = inactiva)
 
    public:
     /**
@@ -81,16 +88,6 @@ class Sim {
      */
     bool getActivo();
 
-    // Métodos setter
-
-    /**
-     * Modifica el estado de activación de la SIM.
-     *
-     * @param actSim Nuevo estado (true = activo, false = inactivo).
-     * @return
-     */
-    void setActivo(bool actSim);
-
     /**
      * Genera una cadena con toda la información de la SIM.
      *
@@ -118,10 +115,6 @@ std::string Sim::getTipo() {
 
 bool Sim::getActivo() {
     return activo;
-}
-
-void Sim::setActivo(bool actSim) {
-    activo = actSim;
 }
 
 std::string Sim::mostrarInfo() {
