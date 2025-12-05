@@ -1,3 +1,20 @@
+/*
+ * Proyecto TecMarket
+ * Rashell Aleck Jiménez Almánzar
+ * A01715359
+ * 04/12/2025
+ */
+
+/*
+ * Clase Televisor
+ * Representa un producto electrónico del tipo televisor, heredando de la
+ * clase Electronico.
+ *
+ * Agrega atributos específicos de un televisor, como tipo de pantalla y si
+ * es Smart TV. Permite obtener información detallada del producto y
+ * mostrarla de manera legible.
+ */
+
 #ifndef TELEVISOR_H
 #define TELEVISOR_H
 
@@ -7,24 +24,18 @@
 
 #include "Electronico.h"
 
-/*
- * Clase Televisor
- * Representa un producto electrónico del tipo televisor, heredando de la clase Electronico.
- *
- * Agrega atributos específicos de un televisor, como tipo de pantalla y si es Smart TV.
- * Permite obtener información detallada del producto y mostrarla de manera legible.
- */
-
 class Televisor : public Electronico {
    private:
-    std::string tipoPantalla;   // Tipo de pantalla del televisor (LED, OLED, LCD, etc.)
-    std::string smartTV;        // Indica si el televisor es Smart TV ("Sí"/"No")
+    std::string tipoPantalla;  // Tipo de pantalla del televisor (LED, OLED,
+                               // LCD, etc.)
+    std::string smartTV;  // Indica si el televisor es Smart TV ("Sí"/"No")
 
    public:
     /**
      * Constructor por default.
      *
-     * Inicializa todos los atributos heredados y propios con valores vacíos o por defecto.
+     * Inicializa todos los atributos heredados y propios con valores vacíos
+     * o por defecto.
      *
      * @param
      * @return Objeto Televisor con valores por defecto.
@@ -73,7 +84,8 @@ class Televisor : public Electronico {
     /**
      * Genera una cadena con toda la información del televisor.
      *
-     * Incluye atributos heredados y propios, además del valor total del stock.
+     * Incluye atributos heredados y propios, además del valor total del
+     * stock.
      *
      * @param
      * @return Cadena con información detallada del televisor.
@@ -93,14 +105,14 @@ std::string Televisor::getSmartTV() {
 
 std::string Televisor::mostrarInfo() {
     std::stringstream info;
-    info << "Nombre: " << nombre << std::endl;
-    info << "Precio: $" << precio << std::endl;
-    info << "Marca: " << marca << std::endl;
-    info << "Tipo de pantalla: " << tipoPantalla << std::endl;
-    info << "Size: " << tamano << " pulgadas" << std::endl;
-    info << "Es Smart TV: " << smartTV << std::endl;
-    info << "Condicion: " << condicion << std::endl;
-    info << "Cantidad disponible: " << cantidadDisponible << std::endl;
+    info << "Nombre: " << getNombre() << std::endl;
+    info << "Precio: $" << getPrecio() << std::endl;
+    info << "Marca: " << getMarca() << std::endl;
+    info << "Tipo de pantalla: " << getTipoPantalla() << std::endl;
+    info << "Size: " << getTamano() << " pulgadas" << std::endl;
+    info << "Es Smart TV: " << getSmartTV() << std::endl;
+    info << "Condicion: " << getCondicion() << std::endl;
+    info << "Cantidad disponible: " << getCantidadDisponible() << std::endl;
     info << "Valor total en stock: $" << calcularValorStock() << std::endl;
     return info.str();
 }
