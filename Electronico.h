@@ -1,9 +1,10 @@
-#ifndef ELECTRONICO_H
-#define ELECTRONICO_H
 
-#include <iostream>
-#include <sstream>
-#include <string>
+/*
+ * Proyecto TecMarket
+ * Rashell Aleck Jiménez Almánzar
+ * A01715359
+ * 04/12/2025
+ */
 
 /*
  * Clase Electronico
@@ -15,14 +16,21 @@
  * del producto.
  */
 
+#ifndef ELECTRONICO_H
+#define ELECTRONICO_H
+
+#include <iostream>
+#include <sstream>
+#include <string>
+
 class Electronico {
-   protected:
-    std::string nombre;              // Nombre del producto electrónico
-    float precio;                    // Precio unitario del producto
-    std::string marca;               // Marca del producto
-    float tamano;                    // Tamaño físico en pulgadas
-    std::string condicion;           // Condición física o de uso del producto
-    int cantidadDisponible;          // Cantidad disponible en inventario
+   private:
+    std::string nombre;      // Nombre del producto electrónico
+    float precio;            // Precio unitario del producto
+    std::string marca;       // Marca del producto
+    float tamano;            // Tamaño físico en pulgadas
+    std::string condicion;   // Condición física o de uso del producto
+    int cantidadDisponible;  // Cantidad disponible en inventario
 
    public:
     /**
