@@ -1,3 +1,20 @@
+/*
+ * Proyecto TecMarket
+ * Rashell Aleck Jiménez Almánzar
+ * A01715359
+ * 04/12/2025
+ */
+
+/*
+ * Clase Laptop
+ * Representa un producto electrónico del tipo laptop, heredando de la clase
+ * Electronico.
+ *
+ * Agrega atributos específicos de una laptop, como procesador y memoria
+ * RAM. Permite obtener información detallada del producto y mostrarla de
+ * manera legible.
+ */
+
 #ifndef LAPTOP_H
 #define LAPTOP_H
 
@@ -7,24 +24,17 @@
 
 #include "Electronico.h"
 
-/*
- * Clase Laptop
- * Representa un producto electrónico del tipo laptop, heredando de la clase Electronico.
- *
- * Agrega atributos específicos de una laptop, como procesador y memoria RAM.
- * Permite obtener información detallada del producto y mostrarla de manera legible.
- */
-
 class Laptop : public Electronico {
    private:
-    std::string procesador;   // Tipo de procesador de la laptop
-    int ram;                  // Memoria RAM en GB
+    std::string procesador;  // Tipo de procesador de la laptop
+    int ram;                 // Memoria RAM en GB
 
    public:
     /**
      * Constructor por default.
      *
-     * Inicializa todos los atributos heredados y propios con valores vacíos o cero.
+     * Inicializa todos los atributos heredados y propios con valores vacíos
+     * o cero.
      *
      * @param
      * @return Objeto Laptop con valores por defecto.
@@ -73,7 +83,8 @@ class Laptop : public Electronico {
     /**
      * Genera una cadena con toda la información de la laptop.
      *
-     * Incluye atributos heredados y propios, además del valor total del stock.
+     * Incluye atributos heredados y propios, además del valor total del
+     * stock.
      *
      * @param
      * @return Cadena con información detallada de la laptop.
@@ -93,14 +104,14 @@ int Laptop::getRam() {
 
 std::string Laptop::mostrarInfo() {
     std::stringstream info;
-    info << "Nombre: " << nombre << std::endl;
-    info << "Precio: $" << precio << std::endl;
-    info << "Marca: " << marca << std::endl;
-    info << "Procesador: " << procesador << std::endl;
-    info << "Size: " << tamano << " pulgadas" << std::endl;
-    info << "RAM: " << ram << " GB" << std::endl;
-    info << "Condicion: " << condicion << std::endl;
-    info << "Cantidad disponible: " << cantidadDisponible << std::endl;
+    info << "Nombre: " << getNombre() << std::endl;
+    info << "Precio: $" << getPrecio() << std::endl;
+    info << "Marca: " << getMarca() << std::endl;
+    info << "Procesador: " << getProcesador() << std::endl;
+    info << "Size: " << getTamano() << " pulgadas" << std::endl;
+    info << "RAM: " << getRam() << " GB" << std::endl;
+    info << "Condicion: " << getCondicion() << std::endl;
+    info << "Cantidad disponible: " << getCantidadDisponible() << std::endl;
     info << "Valor total en stock: $" << calcularValorStock() << std::endl;
     return info.str();
 }
