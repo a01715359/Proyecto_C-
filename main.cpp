@@ -409,6 +409,9 @@ int main() {
                         << "): "; /**< Solicita índice */
                     int idx =
                         getInt(0); /**< Lectura y validación de índice */
+                    std::cin.ignore(
+                        std::numeric_limits<std::streamsize>::max(),
+                        '\n'); /**< Limpieza de buffer */
 
                     if (idx < 0 ||
                         idx >=
@@ -466,6 +469,9 @@ int main() {
                               << "): "; /**< Solicita índice */
                     int idx =
                         getInt(0); /**< Lectura y validación de índice */
+                    std::cin.ignore(
+                        std::numeric_limits<std::streamsize>::max(),
+                        '\n'); /**< Limpieza de buffer */
 
                     if (idx < 0 ||
                         idx >=
@@ -522,6 +528,9 @@ int main() {
                               << "): "; /**< Solicita índice */
                     int idx =
                         getInt(0); /**< Lectura y validación de índice */
+                    std::cin.ignore(
+                        std::numeric_limits<std::streamsize>::max(),
+                        '\n'); /**< Limpieza de buffer */
 
                     if (idx < 0 ||
                         idx >=
