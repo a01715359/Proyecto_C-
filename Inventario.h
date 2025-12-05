@@ -9,43 +9,150 @@
 #include "Smartphone.h"
 #include "Televisor.h"
 
+/*
+ * Clase Inventario
+ * Maneja colecciones de productos electrónicos: Laptops, Smartphones y Televisores.
+ *
+ * Permite agregar, modificar y consultar los productos del inventario,
+ * así como mostrar toda la información de manera organizada.
+ */
+
 class Inventario {
    private:
-    Laptop laptops[1000];
-    Smartphone smartphones[1000];
-    Televisor televisores[1000];
-    int cantidadLaptops;
-    int cantidadSmartphones;
-    int cantidadTelevisores;
+    Laptop laptops[1000];              // Arreglo de objetos Laptop
+    Smartphone smartphones[1000];      // Arreglo de objetos Smartphone
+    Televisor televisores[1000];       // Arreglo de objetos Televisor
+    int cantidadLaptops;               // Número actual de laptops en inventario
+    int cantidadSmartphones;           // Número actual de smartphones en inventario
+    int cantidadTelevisores;           // Número actual de televisores en inventario
 
    public:
+    /**
+     * Constructor por default.
+     *
+     * Inicializa los contadores de cada tipo de producto en cero,
+     * indicando un inventario vacío al crear el objeto.
+     *
+     * @param
+     * @return Objeto Inventario con arreglos vacíos.
+     */
     Inventario()
         : cantidadLaptops(0),
           cantidadSmartphones(0),
           cantidadTelevisores(0) {}
 
+    // Métodos getter
+
+    /**
+     * Obtiene la cantidad de laptops en el inventario.
+     *
+     * @param
+     * @return Número de laptops actualmente en inventario.
+     */
     int getCantidadLaptops();
+
+    /**
+     * Obtiene la cantidad de smartphones en el inventario.
+     *
+     * @param
+     * @return Número de smartphones actualmente en inventario.
+     */
     int getCantidadSmartphones();
+
+    /**
+     * Obtiene la cantidad de televisores en el inventario.
+     *
+     * @param
+     * @return Número de televisores actualmente en inventario.
+     */
     int getCantidadTelevisores();
 
+    // Métodos para agregar productos
+
+    /**
+     * Agrega una laptop al inventario si hay espacio disponible.
+     *
+     * @param laptop Objeto Laptop a agregar.
+     * @return
+     */
     void agregarLaptop(Laptop& laptop);
+
+    /**
+     * Agrega un smartphone al inventario si hay espacio disponible.
+     *
+     * @param smartphone Objeto Smartphone a agregar.
+     * @return
+     */
     void agregarSmartphone(Smartphone& smartphone);
+
+    /**
+     * Agrega un televisor al inventario si hay espacio disponible.
+     *
+     * @param televisor Objeto Televisor a agregar.
+     * @return
+     */
     void agregarTelevisor(Televisor& televisor);
+
+    // Métodos para modificar productos
+
+    /**
+     * Modifica los atributos de una laptop existente en el inventario.
+     *
+     * @param index Índice de la laptop a modificar.
+     * @param nuevoPrecio Nuevo precio de la laptop.
+     * @param nuevaCondicion Nueva condición de la laptop.
+     * @param nuevaCantidad Nueva cantidad disponible.
+     * @return
+     */
     void modificarLaptop(int index, float nuevoPrecio,
                          std::string nuevaCondicion, int nuevaCantidad);
+
+    /**
+     * Modifica los atributos de un smartphone existente en el inventario.
+     *
+     * @param index Índice del smartphone a modificar.
+     * @param nuevoPrecio Nuevo precio del smartphone.
+     * @param nuevaCondicion Nueva condición del smartphone.
+     * @param nuevaCantidad Nueva cantidad disponible.
+     * @return
+     */
     void modificarSmartphone(int index, float nuevoPrecio,
                              std::string nuevaCondicion, int nuevaCantidad);
+
+    /**
+     * Modifica los atributos de un televisor existente en el inventario.
+     *
+     * @param index Índice del televisor a modificar.
+     * @param nuevoPrecio Nuevo precio del televisor.
+     * @param nuevaCondicion Nueva condición del televisor.
+     * @param nuevaCantidad Nueva cantidad disponible.
+     * @return
+     */
     void modificarTelevisor(int index, float nuevoPrecio,
                             std::string nuevaCondicion, int nuevaCantidad);
+
+    /**
+     * Muestra toda la información del inventario en formato legible.
+     *
+     * Incluye laptops, smartphones y televisores, con todos sus
+     * atributos y el valor total de stock de cada uno.
+     *
+     * @param
+     * @return Cadena con la información completa del inventario.
+     */
     std::string mostrarInventario();
 };
+
+// Implementaciones de los métodos
 
 int Inventario::getCantidadLaptops() {
     return cantidadLaptops;
 }
+
 int Inventario::getCantidadSmartphones() {
     return cantidadSmartphones;
 }
+
 int Inventario::getCantidadTelevisores() {
     return cantidadTelevisores;
 }
